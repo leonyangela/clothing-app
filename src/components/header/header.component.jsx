@@ -11,7 +11,7 @@ import CartDropdown from '../cart-dropdown/cart-dropdown.component'
 const Header = ({ currentUser, hidden }) => (
   <div className='header'>
     <Link to='/' className='logo-container'>
-      <Logo className='logo' style={{ maxWidth: '50px' }} />
+      <Logo className='logo' />
     </Link>
 
     <div className='options'>
