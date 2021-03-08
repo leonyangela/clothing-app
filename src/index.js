@@ -11,6 +11,7 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import reportWebVitals from './reportWebVitals'
 
 import { store, persistor } from './redux/store'
+require('dotenv').config();
 
 ReactDOM.render(
   <Provider store={store}>
