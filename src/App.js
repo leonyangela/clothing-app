@@ -15,7 +15,6 @@ import ShopPage from './pages/shop/shop.component.jsx'
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component.jsx'
 import CheckoutPage from './pages/checkout/checkout.component.jsx'
 
-
 class App extends React.Component {
   unsubscribeFromAuth = null
 
@@ -67,6 +66,7 @@ class App extends React.Component {
     )
   }
 }
+
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
 })
