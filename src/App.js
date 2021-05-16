@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 
-import './App.css'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
@@ -14,8 +13,9 @@ import ShopPage from './pages/shop/shop.component.jsx'
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component.jsx'
 import CheckoutPage from './pages/checkout/checkout.component.jsx'
 
-const App = ({ checkUserSession, currentUser }) => {
+import { GlobalStyle } from './global.styles'
 
+const App = ({ checkUserSession, currentUser }) => {
   useEffect(() => {
     checkUserSession()
   }, [checkUserSession])
@@ -27,6 +27,7 @@ const App = ({ checkUserSession, currentUser }) => {
   return (
     <div>
       {/* <Header currentUser={this.state.currentUser} /> ==> Before REDUX*/}
+      <GlobalStyle />
       <Header />
       <Switch>
         <Route exact path='/' component={HomePage} />
@@ -36,23 +37,20 @@ const App = ({ checkUserSession, currentUser }) => {
           exact
           path='/signin'
           render={() =>
-            currentUser ? (
-              <Redirect to='/' />
-            ) : (
-              <SignInAndSignUpPage />
-            )
+            currentUser ? <Redirect to='/' /> : <SignInAndSignUpPage />
           }
         />
       </Switch>
     </div>
-  )
+  );
 }
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
   checkUserSession: () => dispatch(checkUserSession()),
-})
+});
+
 export default connect(mapStateToProps, mapDispatchToProps)(App)
