@@ -1,13 +1,13 @@
-import React from 'react'
-import StripeCheckout from 'react-stripe-checkout'
+import React from 'react';
+import StripeCheckout from 'react-stripe-checkout';
 
 const StripeCheckoutButton = ({ price }) => {
-  const priceForStripe = price * 100
-  const publishableKey = process.env.REACT_APP_STRIPE_KEY
+  const priceForStripe = price * 100;
+  const publishableKey = process.env.REACT_APP_STRIPE_KEY;
   const onToken = (token) => {
-    console.log(token)
-    alert('Payment Successful')
-  }
+    console.log(token);
+    alert('Payment Successful');
+  };
 
   return (
     <StripeCheckout
@@ -22,7 +22,7 @@ const StripeCheckoutButton = ({ price }) => {
       token={onToken}
       stripeKey={publishableKey}
     />
-  )
-}
+  );
+};
 
-export default StripeCheckoutButton
+export default StripeCheckoutButton;
